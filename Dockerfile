@@ -8,5 +8,4 @@ RUN pip install -r requirements.txt && pip install cython 'git+https://github.co
 RUN apt-get update && DEBIAN_FRONTEND="noninteractive" apt-get install ffmpeg libsm6 libxext6  -y
 
 RUN pip install -r YOLOX/requirements.txt
-RUN YOLOX
-RUN python YOLOX/setup.py develop
+#RUN cd YOLOX && python setup.py develop

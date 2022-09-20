@@ -1,6 +1,6 @@
 numpy
 torch>=1.7
-opencv_python
+opencv-python==4.5.5.64
 loguru
 scikit-image
 tqdm
