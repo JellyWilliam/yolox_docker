@@ -10,3 +10,5 @@
     
     docker run -it yolox bash
 4) Далее выполняем необходимые скрипты внутри контейнера
+   
+(docker cp <containerId>:/file/path/within/container /host/path/target - для сохранения результатов)
