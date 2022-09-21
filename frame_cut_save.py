@@ -1,5 +1,10 @@
 import argparse
 import av
+import numpy as np
+
+from my_yolox import main, get_exp_by_name
+
+exp = get_exp_by_name("yolox_nano")
 
 
 def save_frame(video_path: str, list_frame: list):
@@ -14,7 +19,9 @@ def save_frame(video_path: str, list_frame: list):
 
     for frame in container.decode(video=0):
         if frame.index in list_frame:
-            frame.to_image().save(f'frame_{frame.index}.jpg')
+            open_cv_image = np.array(frame.to_image())
+            open_cv_image = open_cv_image[:, :, ::-1].copy()
+            main(exp=exp, image=open_cv_image, name_frame=f'frame_{frame.index}.jpg')
 
     print("Успешно завершено")
 
