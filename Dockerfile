@@ -6,6 +6,8 @@ COPY . .
 RUN pip install -r requirements.txt && pip install cython 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
 
 RUN apt-get update && DEBIAN_FRONTEND="noninteractive" apt-get install ffmpeg libsm6 libxext6  -y
+RUN apt install git
+RUN git clone https://github.com/Megvii-BaseDetection/YOLOX
+RUN mkdir YOLOX/models
+RUN cd YOLOX/models && wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_nano.pth
 
-RUN pip install -r YOLOX/requirements.txt
-#RUN cd YOLOX && python setup.py develop

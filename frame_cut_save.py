@@ -31,7 +31,7 @@ parser.add_argument("--frames", default="100,200,224")
 parser.add_argument("--i", default="develop_streem.ts")
 args = parser.parse_args()
 frames = args.frames
-frames = result = list(map(int, frames.split(",")))
+frames = list(map(int, frames.split(",")))
 video = args.i
 
 save_frame(video_path=video, list_frame=frames)
