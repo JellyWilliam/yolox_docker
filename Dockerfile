@@ -8,6 +8,7 @@ RUN pip install -r requirements.txt && pip install cython 'git+https://github.co
 RUN apt-get update && DEBIAN_FRONTEND="noninteractive" apt-get install ffmpeg libsm6 libxext6  -y
 RUN apt install git
 RUN git clone https://github.com/Megvii-BaseDetection/YOLOX
+RUN cd YOLOX && python setup.py develop
 RUN mkdir YOLOX/models
 RUN cd YOLOX/models && wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_nano.pth
 
